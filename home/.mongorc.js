@@ -1,0 +1,1 @@
+/Users/meder/.oh-my-zsh/custom/plugins/EnhancedMongo/mongo_hacker.js
