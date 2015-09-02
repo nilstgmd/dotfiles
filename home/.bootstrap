@@ -1,0 +1,53 @@
+#!/bin/zsh
+
+#
+# This script contains steps to reinstall a new machine with my favourit shell,
+# terminal multiplexer, settings and package manager.
+#
+# @author 	Nils Meder
+# @year 	2015
+#
+
+# Install Homebrew.
+echo "Installing Homebrew..."
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install Cask Extention
+brew install caskroom/cask/brew-cask
+
+# Install zsh and make default shell
+echo "Let's get ZSH..."
+brew install zsh zsh-completions
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+# Install favorite tools
+echo "Start installing tools..."
+brew install mongodb awscli docker boot2docker git tmux maven go jq openssl s3cmd autojump
+
+# Install favorite desktop software, see https://github.com/caskroom/homebrew-cask/tree/master/Casks
+echo "Start installing desktop software..."
+brew cask install atom
+brew cask install alfred
+brew cask install 1password
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install spotify
+
+# Getting setting from Homeshick repository
+echo "Applying settings from Homeshick..."
+git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+$HOME/.homesick/repos/homeshick/bin/homeshick clone nilstgmd/dotfile
+
+# Airline Fonts
+git clone https://github.com/powerline/fonts.git $HOME/powerline/fonts
+sh $HOME/powerline/fonts/install.sh
+rm -rf $HOME/powerline
+
+# Init Docker
+echo "Init docker..."
+boot2docker init
+boot2docker up
+
+chsh -s /bin/zsh
+echo "Log in again to start your proper shell"
+
