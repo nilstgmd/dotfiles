@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/work/git/shared-bundles/WebAPIBasics/com.adobesc.protocol.http/src/main/java'
 let g:netrw_dirhist_2='/Users/meder/go/src/git.corp.adobe.com/SharedCloud/StarLord/vendor/gopkg.in'
 let g:netrw_dirhist_3='/work/git/servicecontainer/assembly/target/sharedcloud'
+let g:netrw_dirhist_4='/work/git/servicecontainer/assembly/target/sharedcloud/etc'
+let g:netrw_dirhist_5='/work/git/matroshka/deployr/cookbook/attributes'
