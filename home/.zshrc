@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Activating before theme is loaded to get the correct java version.
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/
 export JAVA_TOOL_OPTIONS='-Djava.awt.headless=true'
 
 # Set name of the theme to load.
@@ -56,23 +56,21 @@ export LANG=en_US.UTF-8
 
 export EDITOR='vim'
 
-export PATH=$PATH:/opt/chef/embedded/bin:/work/hadoop-1.0.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin
-export HADOOP_HOME=/work/hadoop-1.0.3
-export HADOOP_VERSION=1.0.3
-export PATH="$HADOOP_HOME/bin:$PATH"
-
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
-export DOCKER_HOST=tcp://127.0.0.1:2376
-export DOCKER_CERT_PATH=/Users/meder/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+alias dockerdev='docker-machine start dev && eval "$(docker-machine env dev)"'
 alias drm="docker rm"
 alias dps="docker ps"
 
 export TESSA_API_KEY=L2SMADJt++xAkaYXAvQMYssyg4GzdDin0yO+09PZU3g
 
 export PATH=/usr/local/bin:$PATH
+
+# path to the DCOS CLI binary
+if [[ "$PATH" != *"/Users/meder/dcos/bin"* ]];
+  then export PATH=$PATH:/Users/meder/dcos/bin;
+fi
 
 MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=1024m"
 
@@ -181,7 +179,7 @@ sc() { aws ec2 describe-instances | jq 'def na: if (. == null) then "n/a" else .
 
 component() { curl http://mad-ham-mtx.eur.adobe.com:8080 | jq '.[] | select(.owner1=="'$USER'" or .owner2=="'$USER'" or .expert1=="'$USER'") | {name: .name, design: .scores.design, code: .scores.code, documentation: .scores.documentation, tests: .scores.tests, knowledge: .scores.knowledge, churn: .scores.churn}' }
 
-eval "$(chef shell-init zsh)"
+#eval "$(chef shell-init zsh)"
 
 alias nxt="spotify next" 
 alias ply="spotify play"
@@ -192,3 +190,4 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 homeshick --quiet refresh 2
 
 source $ZSH/oh-my-zsh.sh
+export PATH="/usr/local/sbin:$PATH"

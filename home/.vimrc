@@ -3,6 +3,9 @@ set background=dark
 set number
 :set listchars=eol:¶,tab:>-,trail:.,extends:>,precedes:<
 set list
+:set mouse=a
+
+set backspace=2
 
 execute pathogen#infect()
 
