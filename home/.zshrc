@@ -130,41 +130,6 @@ export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOCONNECT=true
 export ZSH_TMUX_AUTOQUIT=true
 
-# Stable AZ1: 54.208.185.30
-# Stable AZ2: 54.208.172.225
-alias scss-stable-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.208.185.30"
-alias scss-hop-stable-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.208.185.30 \"ssh $@\""
-
-# ==================================================================================================
-
-# Stage US AZ1: 54.208.135.45
-# Stage US AZ2: 54.208.124.148
-alias scss-stage-ue1-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.208.135.45"
-alias scss-hop-stage-ue1-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.208.135.45 \"ssh $@\""
-# Stage EU AZ1: 54.229.164.29
-# Stage EU AZ2: 54.229.164.22
-alias scss-stage-ew1-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.229.164.29"
-alias scss-hop-stage-ew1-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.229.164.29 \"ssh $@\""
-# Stage AP AZ1: 54.250.222.126
-# Stage AP AZ2: 54.250.222.73
-alias scss-stage-an1-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.250.222.126"
-alias scss-hop-stage-an1-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.250.222.126 \"ssh $@\""
-
-# ==================================================================================================
-
-# Prod US AZ1: 54.208.214.6
-# Prod US AZ2: 54.208.250.182
-alias scss-prod-ue1-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.208.214.6"
-alias scss-hop-prod-ue1-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.208.214.6 \"ssh $@\""
-# Prod EU AZ1: 54.194.17.30
-# Prod EU AZ2: 54.194.8.49
-alias scss-prod-ew1-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.194.17.30"
-alias scss-hop-prod-ew1-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.194.17.30 \"ssh $@\""
-# Prod AP AZ1: 54.238.151.77
-# Prod AP AZ2: 54.238.202.1
-alias scss-prod-an1-bastion="ssh -i ~/.ssh/SC-bastion.pem ec2-user@54.238.151.77"
-alias scss-hop-prod-an1-bastion="ssh -t -i ~/.ssh/SC-bastion.pem ec2-user@54.238.151.77 \"ssh $@\""
-
 # ======================================================================== local mongo shard & repl
 alias mongod-server1A="mongod --dbpath /data/server1A/ --port 27010 --rest --shardsvr --replSet set1/localhost:27011"
 alias mongod-server1B="mongod --dbpath /data/server1B/ --port 27011 --rest --shardsvr --replSet set1/localhost:27010"
